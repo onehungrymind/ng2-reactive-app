@@ -21,6 +21,8 @@
     "@angular/platform-browser": "2.0.0",
     "@angular/platform-browser-dynamic": "2.0.0",
     "@angular/router": "3.0.0",
+    "@ngrx/core": "^1.2.0",
+    "@ngrx/store": "^2.2.1",
     "core-js": "^2.4.1",
     "json-server": "^0.8.21",
     "rxjs": "5.0.0-beta.12",

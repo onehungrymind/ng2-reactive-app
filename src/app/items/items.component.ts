@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import { ItemsService, Item } from '../shared';
 
 @Component({
@@ -7,14 +8,16 @@ import { ItemsService, Item } from '../shared';
   styleUrls: ['./items.component.css']
 })
 export class ItemsComponent implements OnInit {
-  items: Array<Item>;
+  items: Observable<Item[]>;
   selectedItem: Item;
 
-  constructor(private itemsService: ItemsService) {}
+  constructor(
+    private itemsService: ItemsService
+  ) {}
 
   ngOnInit() {
-    this.itemsService.loadItems()
-      .then(items => this.items = items);
+    this.items = this.itemsService.items;
+    this.itemsService.loadItems();
   }
 
   resetItem() {
@@ -27,35 +30,15 @@ export class ItemsComponent implements OnInit {
   }
 
   saveItem(item: Item) {
-    this.itemsService.saveItem(item)
-      .then(responseItem => {
-        if (item.id) {
-          this.replaceItem(responseItem);
-        } else {
-          this.pushItem(responseItem);
-        }
-      });
+    this.itemsService.saveItem(item);
 
     // Generally, we would want to wait for the result of `itemsService.saveItem`
     // before resetting the current item.
     this.resetItem();
   }
 
-  replaceItem(item: Item) {
-    this.items = this.items.map(mapItem => {
-      return mapItem.id === item.id ? item : mapItem;
-    });
-  }
-
-  pushItem(item: Item) {
-    this.items.push(item);
-  }
-
   deleteItem(item: Item) {
-    this.itemsService.deleteItem(item)
-      .then(() => {
-        this.items.splice(this.items.indexOf(item), 1);
-      });
+    this.itemsService.deleteItem(item);
 
     // Generally, we would want to wait for the result of `itemsService.deleteItem`
     // before resetting the current item.

@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Ng2RestAppRoutingModule } from './app-routing.module';
+import { StoreModule } from '@ngrx/store';
 
-import { ItemsService } from './shared';
+import { ItemsService, items } from './shared';
 
 import { AppComponent } from './app.component';
 import { ItemsComponent } from './items/items.component';
@@ -22,7 +23,8 @@ import { ItemDetailComponent } from './items/item-detail/item-detail.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    Ng2RestAppRoutingModule
+    Ng2RestAppRoutingModule,
+    StoreModule.provideStore({ items })
   ],
   providers: [ItemsService],
   bootstrap: [AppComponent]
