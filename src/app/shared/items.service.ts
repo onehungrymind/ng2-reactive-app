@@ -16,14 +16,12 @@ const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
 @Injectable()
 export class ItemsService {
-  items: Observable<Item[]>;
+  items$: Observable<Item[]> = this.store.select('items');
 
   constructor(
     private http: Http,
     private store: Store<Item[]>
-  ) {
-    this.items = this.store.select('items');
-  }
+  ) {}
 
   loadItems() {
     return this.http.get(BASE_URL)

@@ -8,7 +8,7 @@ import { ItemsService, Item } from '../shared';
   styleUrls: ['./items.component.css']
 })
 export class ItemsComponent implements OnInit {
-  items: Observable<Item[]>;
+  items$: Observable<Item[]>;
   selectedItem: Item;
 
   constructor(
@@ -16,7 +16,7 @@ export class ItemsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.items = this.itemsService.items;
+    this.items$ = this.itemsService.items$;
     this.itemsService.loadItems();
   }
 
