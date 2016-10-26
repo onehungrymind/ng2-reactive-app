@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ItemsService, Item } from '../shared';
 
 @Component({
   selector: 'app-items',
   templateUrl: './items.component.html',
-  styleUrls: ['./items.component.css']
+  styleUrls: ['./items.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ItemsComponent implements OnInit {
   items$: Observable<Item[]>;

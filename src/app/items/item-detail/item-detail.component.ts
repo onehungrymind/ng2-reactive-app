@@ -1,10 +1,11 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { Item } from '../../shared';
 
 @Component({
   selector: 'app-item-detail',
   templateUrl: './item-detail.component.html',
-  styleUrls: ['./item-detail.component.css']
+  styleUrls: ['./item-detail.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ItemDetailComponent {
   originalName: string;
