@@ -1,10 +1,10 @@
+.item-card {
+  margin-bottom: 10px;
+}
+
 h5 {
   margin: 0;
 }
-
-.mdl-card__title {  }
-
-.mdl-card__title-text {  }
 
 .mdl-card__supporting-text {
   width: auto;
