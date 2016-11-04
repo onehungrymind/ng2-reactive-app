@@ -1,0 +1,15 @@
+<div class="mdl-grid items">
+  <div class="mdl-cell mdl-cell--6-col">
+    <app-widgets-list [widgets]="widgets$ | async"
+                    (selected)="selectWidget($event)"
+                    (deleted)="deleteWidget($event)">
+    </app-widgets-list>
+  </div>
+  <div class="mdl-cell mdl-cell--6-col">
+    <app-widget-detail (saved)="saveWidget($event)"
+                     (cancelled)="resetWidget($event)"
+                     [widget]="selectedWidget">
+      Select an Widget
+    </app-widget-detail>
+  </div>
+</div>

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 import { Item } from './item.model';
+import { AppStore } from '../app-store';
 import 'rxjs/add/operator/map';
 import {
   ADD_ITEMS,
@@ -20,7 +21,7 @@ export class ItemsService {
 
   constructor(
     private http: Http,
-    private store: Store<Item[]>
+    private store: Store<AppStore>
   ) {}
 
   loadItems() {

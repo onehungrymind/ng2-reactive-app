@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 import { User } from './user.model';
+import { AppStore } from '../app-store';
 import 'rxjs/add/operator/map';
 import {
   ADD_USERS,
@@ -20,7 +21,7 @@ export class UsersService {
 
   constructor(
     private http: Http,
-    private store: Store<User[]>
+    private store: Store<AppStore>
   ) {}
 
   loadUsers() {

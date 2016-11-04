@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   links = {
     items: ['/items'],
+    widgets: ['/widgets'],
     users: ['/users'],
     home: ['/home']
   }
