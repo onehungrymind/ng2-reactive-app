@@ -10,13 +10,20 @@ import 'rxjs/add/observable/combineLatest';
   encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent {
-  items$: Observable<Item[]> = this.itemsService.items$;
-  widgets$: Observable<Widget[]> = this.widgetsService.widgets$;
+  items$: Observable<Item[]>;
+  widgets$: Observable<Widget[]>;
+  items: Item[];
+  widgets: Widget[];
 
   constructor(
     private itemsService: ItemsService,
     private widgetsService: WidgetsService
   ) {
+    this.itemsService.items$
+      .subscribe(items => this.items = items);
+    this.widgetsService.widgets$
+      .subscribe(widgets => this.widgets = widgets);
+
     this.itemsService.loadItems();
     this.widgetsService.loadWidgets();
   }

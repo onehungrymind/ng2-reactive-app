@@ -10,6 +10,7 @@ import { WidgetsService, Widget } from '../shared';
 })
 export class WidgetsComponent implements OnInit {
   widgets$: Observable<Widget[]>;
+  widgets: Widget[];
   selectedWidget: Widget;
 
   constructor(
@@ -17,7 +18,7 @@ export class WidgetsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.widgets$ = this.widgetsService.widgets$;
+    this.widgetsService.widgets$.subscribe(widgets => this.widgets = widgets);
     this.widgetsService.loadWidgets();
   }
 

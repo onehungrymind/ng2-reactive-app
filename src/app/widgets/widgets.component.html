@@ -1,6 +1,6 @@
 <div class="mdl-grid items">
   <div class="mdl-cell mdl-cell--6-col">
-    <app-widgets-list [widgets]="widgets$ | async"
+    <app-widgets-list [widgets]="widgets"
                     (selected)="selectWidget($event)"
                     (deleted)="deleteWidget($event)">
     </app-widgets-list>
