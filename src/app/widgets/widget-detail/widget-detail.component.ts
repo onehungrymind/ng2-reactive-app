@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, OnInit } from '@angular/core';
-import { Widget, UsersService } from '../../shared';
-import {  } from '';
+import { Widget, UsersService, User } from '../../shared';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-widget-detail',
