@@ -33,20 +33,29 @@ const comparator = 'id';
 export const widgets: ActionReducer<Widget[]> = (state: Widget[] = initialState, action: Action) => {
   switch (action.type) {
     case ADD_WIDGETS:
-      return initialState;
+      return state;
 
     case CREATE_WIDGET:
-      return [...state, action.payload];
+      state.push(action.payload);
+      return state;
 
     case UPDATE_WIDGET:
-      return state.map(widget => {
-        return widget[comparator] === action.payload[comparator] ? Object.assign({}, widget, action.payload) : widget;
+      state.forEach((widget, index) => {
+        if (widget[comparator] === action.payload[comparator]) {
+          state.splice(index, 1, action.payload);
+        }
       });
 
+      return state;
+
     case DELETE_WIDGET:
-      return state.filter(widget => {
-        return widget[comparator] !== action.payload[comparator];
+      state.forEach((widget, index) => {
+        if (widget[comparator] === action.payload[comparator]) {
+          state.splice(index, 1);
+        }
       });
+
+      return state;
 
     default:
       return state;
