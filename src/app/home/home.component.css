@@ -2,7 +2,7 @@ app-home .mdl-card__menu {
   display: none;
 }
 
-.item-card.mdl-card {
+app-home .item-card.mdl-card {
   cursor: auto;
 }
 
