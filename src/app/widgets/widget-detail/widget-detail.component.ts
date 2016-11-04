@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./widget-detail.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class WidgetDetailComponent implements OnInit{
+export class WidgetDetailComponent implements OnInit {
   originalName: string;
   selectedWidget: Widget;
   users$: Observable<User[]> = this.usersService.users$;
@@ -17,7 +17,7 @@ export class WidgetDetailComponent implements OnInit{
   @Output() cancelled = new EventEmitter();
 
   @Input() set widget(value: Widget){
-    if (value) this.originalName = value.name;
+    if (value) { this.originalName = value.name; }
     this.selectedWidget = Object.assign({}, value);
   }
 

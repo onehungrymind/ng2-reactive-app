@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./item-detail.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ItemDetailComponent implements OnInit{
+export class ItemDetailComponent implements OnInit {
   originalName: string;
   selectedItem: Item;
   users$: Observable<User[]> = this.usersService.users$;
@@ -17,7 +17,7 @@ export class ItemDetailComponent implements OnInit{
   @Output() cancelled = new EventEmitter();
 
   @Input() set item(value: Item){
-    if (value) this.originalName = value.name;
+    if (value) { this.originalName = value.name; }
     this.selectedItem = Object.assign({}, value);
   }
 
