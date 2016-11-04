@@ -1,5 +1,6 @@
-import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
-import { Widget } from '../../shared';
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Widget, UsersService } from '../../shared';
+import {  } from '';
 
 @Component({
   selector: 'app-widget-detail',
@@ -7,14 +8,22 @@ import { Widget } from '../../shared';
   styleUrls: ['./widget-detail.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class WidgetDetailComponent {
+export class WidgetDetailComponent implements OnInit{
   originalName: string;
   selectedWidget: Widget;
+  users$: Observable<User[]> = this.usersService.users$;
+
   @Output() saved = new EventEmitter();
   @Output() cancelled = new EventEmitter();
 
   @Input() set widget(value: Widget){
     if (value) this.originalName = value.name;
     this.selectedWidget = Object.assign({}, value);
+  }
+
+  constructor(private usersService: UsersService) {}
+
+  ngOnInit() {
+    this.usersService.loadUsers();
   }
 }

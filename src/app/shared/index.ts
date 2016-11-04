@@ -7,3 +7,5 @@ export * from './users.reducer';
 export { WidgetsService } from './widgets.service';
 export { Widget } from './widget.model';
 export * from './widgets.reducer';
+export { HomeService, UserData } from './home.service';
+
