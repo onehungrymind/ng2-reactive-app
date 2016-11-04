@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  border-radius:0;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, .12);
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0;
+  min-width: 88px;
+  line-height: 36px;
+  -webkit-transition: border-color .3s;
+  -moz-transition: border-color .3s;
+  -ms-transition: border-color .3s;
+  -o-transition: border-color .3s;
+  transition: border-color .3s;
+  width: 100%;
+}
+
+select:focus {
+  border-bottom-color: rgb(255,64,129);
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper:after {
+  content: '\25bc';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  line-height: 36px;
+  color: rgba(0,0,0,.54);
+  cursor: pointer;
+  pointer-events: none;
+}
