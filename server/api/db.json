@@ -3,17 +3,37 @@
     {
       "id": 1,
       "name": "Item 1",
-      "description": "This is a description"
+      "description": "This is a description",
+      "user": 1
     },
     {
       "id": 2,
       "name": "Item 2",
-      "description": "This is a description edtied"
+      "description": "This is a description edtied",
+      "user": 3
     },
     {
       "id": 3,
       "name": "Item 3",
-      "description": "This is a lovely item edited again!"
+      "description": "This is a lovely item edited again!",
+      "user": 2
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "bio": "Not to be confused with John Smith and stuff"
+    },
+    {
+      "id": 2,
+      "name": "Jane Doe",
+      "bio": "Don't call her plain Jane whatever you do"
+    },
+    {
+      "id": 3,
+      "name": "Sally Sue",
+      "bio": "Her first and last name both start with S haha!"
     }
   ]
 }

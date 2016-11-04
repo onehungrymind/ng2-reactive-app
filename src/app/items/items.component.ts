@@ -22,7 +22,7 @@ export class ItemsComponent implements OnInit {
   }
 
   resetItem() {
-    let emptyItem: Item = {id: null, name: '', description: ''};
+    let emptyItem: Item = {id: null, name: '', description: '', user: undefined};
     this.selectedItem = emptyItem;
   }
 

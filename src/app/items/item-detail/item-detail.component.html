@@ -20,6 +20,13 @@
                placeholder="Enter a description"
                class="mdl-textfield__input" type="text">
       </div>
+      <div class="mdl-textfield">
+        <label for="user">User</label>
+        <select [(ngModel)]="selectedItem.user" name="user" id="user">
+          <option value="undefined">Select...</option>
+          <option *ngFor="let user of users$ | async" value="{{user.id}}">{{user.name}}</option>
+        </select>
+      </div>
     </form>
   </div>
   <div class="mdl-card__actions">

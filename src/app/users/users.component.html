@@ -1,0 +1,15 @@
+<div class="mdl-grid items">
+  <div class="mdl-cell mdl-cell--6-col">
+    <app-users-list [users]="users$ | async"
+                    (selected)="selectUser($event)"
+                    (deleted)="deleteUser($event)">
+    </app-users-list>
+  </div>
+  <div class="mdl-cell mdl-cell--6-col">
+    <app-user-detail (saved)="saveUser($event)"
+                     (cancelled)="resetUser($event)"
+                     [user]="selectedUser">
+      Select an User
+    </app-user-detail>
+  </div>
+</div>
