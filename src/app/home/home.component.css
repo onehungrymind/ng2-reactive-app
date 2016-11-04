@@ -1,24 +1,11 @@
-.sub-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 h5 {
   margin: 0;
 }
 
-.mdl-card__title {
-  padding-bottom: 0;
-  justify-content: center;
-}
+.mdl-card__title {  }
 
-.mdl-card__title-text {
-  border-bottom: 1px solid;
-  padding: 0 20px;
-}
+.mdl-card__title-text {  }
 
 .mdl-card__supporting-text {
-  padding-top: 0;
   width: auto;
 }
