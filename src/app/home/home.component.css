@@ -1,5 +1,9 @@
-.item-card {
-  margin-bottom: 10px;
+app-home .mdl-card__menu {
+  display: none;
+}
+
+.item-card.mdl-card {
+  cursor: auto;
 }
 
 h5 {

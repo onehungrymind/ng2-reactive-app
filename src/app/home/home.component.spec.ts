@@ -2,9 +2,14 @@
 
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { HomeComponent } from './home.component';
-import { HomeService } from '../shared';
+import { ItemsService, WidgetsService } from '../shared';
 
-class HomeServiceStub {}
+class ItemsServiceStub {
+  loadItems() {}
+}
+class WidgetsServiceStub {
+  loadWidgets() {}
+}
 
 describe('Component: Home', () => {
   let fixture: ComponentFixture<HomeComponent>;
@@ -12,8 +17,13 @@ describe('Component: Home', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [ HomeComponent ],
-      providers: [{ provide: HomeService, useClass: HomeServiceStub }]
+      providers: [
+        { provide: ItemsService, useClass: ItemsServiceStub },
+        { provide: WidgetsService, useClass: WidgetsServiceStub }
+      ]
     });
+
+    TestBed.overrideComponent(HomeComponent, {set: {template: ''}});
 
     fixture = TestBed.createComponent(HomeComponent);
   });
