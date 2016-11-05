@@ -2,6 +2,10 @@
   margin-bottom: 10px;
 }
 
+app-home .item-card.mdl-card {
+  cursor: default !important;
+}
+
 h5 {
   margin: 0;
 }
