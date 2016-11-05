@@ -1,4 +1,7 @@
 <div class="mdl-grid items">
+  <div class="mdl-cell mdl-cell--12-col">
+    <app-slider></app-slider>
+  </div>
   <div class="mdl-cell mdl-cell--6-col">
     <app-widgets-list [widgets]="widgets$ | async"
                     (selected)="selectWidget($event)"

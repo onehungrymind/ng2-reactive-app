@@ -6,7 +6,7 @@ import { WidgetsService, Widget } from '../shared';
   selector: 'app-widgets',
   templateUrl: './widgets.component.html',
   styleUrls: ['./widgets.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WidgetsComponent implements OnInit {
   widgets$: Observable<Widget[]>;
