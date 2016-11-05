@@ -3,11 +3,11 @@
     <h2 class="mdl-card__title-text">Coolness factor</h2>
   </div>
   <div class="mdl-card__supporting-text">
-    <form>
-      <input #minInput name="min" ngModel type="range" [min]="min" [max]="max" [step]="step">
-      <p>min - {{minInput.value}}</p>
-      <input #maxInput name="max" ngModel type="range" [min]="min" [max]="max" [step]="step">
-      <p>max - {{maxInput.value}}</p>
+    <form [formGroup]="myForm">
+      <input type="range" formControlName="min" [min]="min" [max]="max" [step]="step">
+      <p>min - {{minValue | async}}</p>
+      <input type="range" formControlName="max" [min]="min" [max]="max" [step]="step">
+      <p>max - {{maxValue | async}}</p>
     </form>
   </div>
 </div>

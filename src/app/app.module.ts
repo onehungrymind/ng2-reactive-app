@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Ng2RestAppRoutingModule } from './app-routing.module';
 import { StoreModule } from '@ngrx/store';
@@ -41,6 +41,7 @@ import { SliderComponent } from './widgets/slider/slider.component';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     Ng2RestAppRoutingModule,
     StoreModule.provideStore({ items, users, widgets })
