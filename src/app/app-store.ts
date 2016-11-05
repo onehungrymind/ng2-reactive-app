@@ -1,7 +1,6 @@
-import { Item, User, Widget } from './shared';
+import { Item, User } from './shared';
 
 export interface AppStore {
-  items: Item[],
-  users: User[],
-  widgets: Widget[]
+  items: Item[];
+  users: User[];
 }
