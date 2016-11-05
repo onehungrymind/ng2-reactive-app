@@ -20,6 +20,8 @@ body {
 .item-card.mdl-card {
   width: 100%;
   min-height: inherit;
+}
+.mdl-cell--6-col:not(:last-child) .item-card {
   cursor: pointer;
 }
 .item-card .mdl-textfield {
