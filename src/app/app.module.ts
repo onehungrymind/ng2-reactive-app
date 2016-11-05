@@ -21,6 +21,7 @@ import { WidgetsListComponent } from './widgets/widgets-list/widgets-list.compon
 import { WidgetDetailComponent } from './widgets/widget-detail/widget-detail.component';
 
 import { HomeComponent } from './home/home.component';
+import { SliderComponent } from './widgets/slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { HomeComponent } from './home/home.component';
     HomeComponent,
     WidgetsComponent,
     WidgetsListComponent,
-    WidgetDetailComponent
+    WidgetDetailComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
