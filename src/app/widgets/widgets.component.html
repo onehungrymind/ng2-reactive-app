@@ -6,9 +6,7 @@
     </app-widgets-list>
   </div>
   <div class="mdl-cell mdl-cell--6-col">
-    <app-widget-detail (saved)="saveWidget($event)"
-                     (cancelled)="resetWidget($event)"
-                     [widget]="selectedWidget">
+    <app-widget-detail [widget]="selectedWidget">
       Select an Widget
     </app-widget-detail>
   </div>

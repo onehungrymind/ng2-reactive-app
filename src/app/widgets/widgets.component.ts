@@ -1,15 +1,12 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Component, OnInit } from '@angular/core';
 import { WidgetsService, Widget } from '../shared';
 
 @Component({
   selector: 'app-widgets',
   templateUrl: './widgets.component.html',
-  styleUrls: ['./widgets.component.css'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./widgets.component.css']
 })
 export class WidgetsComponent implements OnInit {
-  widgets$: Observable<Widget[]>;
   widgets: Widget[];
   selectedWidget: Widget;
 
@@ -23,7 +20,7 @@ export class WidgetsComponent implements OnInit {
   }
 
   resetWidget() {
-    let emptyWidget: Widget = {id: null, name: '', description: '', user: undefined};
+    let emptyWidget: Widget = {id: null, name: '', description: ''};
     this.selectedWidget = emptyWidget;
   }
 
@@ -31,16 +28,12 @@ export class WidgetsComponent implements OnInit {
     this.selectedWidget = widget;
   }
 
-  saveWidget(widget: Widget) {
-    this.widgetsService.saveWidget(widget);
-
-    // Generally, we would want to wait for the result of `widgetsService.saveWidget`
-    // before resetting the current widget.
-    this.resetWidget();
-  }
-
   deleteWidget(widget: Widget) {
-    this.widgetsService.deleteWidget(widget);
+    this.widgets.forEach((w, index) => {
+      if (w.id === widget.id) {
+        this.widgets.splice(index, 1);
+      }
+    });
 
     // Generally, we would want to wait for the result of `widgetsService.deleteWidget`
     // before resetting the current widget.
