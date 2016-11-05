@@ -3,7 +3,7 @@ app-home .mdl-card__menu {
 }
 
 app-home .item-card.mdl-card {
-  cursor: auto;
+  cursor: default !important;
 }
 
 h5 {
