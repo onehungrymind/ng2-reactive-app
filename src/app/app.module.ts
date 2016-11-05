@@ -21,6 +21,7 @@ import { WidgetsListComponent } from './widgets/widgets-list/widgets-list.compon
 import { WidgetDetailComponent } from './widgets/widget-detail/widget-detail.component';
 
 import { HomeComponent } from './home/home.component';
+import { CounterComponent } from './widgets/counter/counter.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { HomeComponent } from './home/home.component';
     HomeComponent,
     WidgetsComponent,
     WidgetsListComponent,
-    WidgetDetailComponent
+    WidgetDetailComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,

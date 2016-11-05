@@ -2,12 +2,18 @@
 
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { HomeComponent } from './home.component';
-import { ItemsService, WidgetsService } from '../shared';
+import { ItemsService, WidgetsService, Widget, Item } from '../shared';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
 class ItemsServiceStub {
+  items$: Observable<Item[]> = Observable.of([]);
+
   loadItems() {}
 }
 class WidgetsServiceStub {
+  widgets$: Observable<Widget[]> = Observable.of([]);
+
   loadWidgets() {}
 }
 
@@ -16,10 +22,10 @@ describe('Component: Home', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent ],
+      declarations: [HomeComponent],
       providers: [
-        { provide: ItemsService, useClass: ItemsServiceStub },
-        { provide: WidgetsService, useClass: WidgetsServiceStub }
+        {provide: ItemsService, useClass: ItemsServiceStub},
+        {provide: WidgetsService, useClass: WidgetsServiceStub}
       ]
     });
 

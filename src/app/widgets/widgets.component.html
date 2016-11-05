@@ -1,4 +1,7 @@
 <div class="mdl-grid items">
+  <div class="mdl-cell mdl-cell--12-col">
+    <app-counter></app-counter>
+  </div>
   <div class="mdl-cell mdl-cell--6-col">
     <app-widgets-list [widgets]="widgets"
                     (selected)="selectWidget($event)"
