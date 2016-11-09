@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { Ng2RestAppRoutingModule } from './app-routing.module';
 import { StoreModule } from '@ngrx/store';
 
-import { ItemsService, items, UsersService, users, WidgetsService, widgets, HomeService } from './shared';
+import { ItemsService, items, UsersService, users, WidgetsService, widgets, HomeService, ItemsActions } from './shared';
 
 import { AppComponent } from './app.component';
 import { ItemsComponent } from './items/items.component';
@@ -43,7 +43,7 @@ import { HomeComponent } from './home/home.component';
     Ng2RestAppRoutingModule,
     StoreModule.provideStore({ items, users, widgets })
   ],
-  providers: [ItemsService, UsersService, WidgetsService, HomeService],
+  providers: [ItemsService, UsersService, WidgetsService, HomeService, ItemsActions],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

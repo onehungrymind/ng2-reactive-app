@@ -17,6 +17,12 @@
       "name": "Item 3",
       "description": "This is a lovely item edited again!",
       "user": 2
+    },
+    {
+      "name": "Item 4",
+      "description": "This is the description",
+      "user": 1,
+      "id": 4
     }
   ],
   "users": [

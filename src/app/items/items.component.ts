@@ -31,11 +31,14 @@ export class ItemsComponent implements OnInit {
   }
 
   saveItem(item: Item) {
-    this.itemsService.saveItem(item);
-
-    // Generally, we would want to wait for the result of `itemsService.saveItem`
-    // before resetting the current item.
-    this.resetItem();
+    this.itemsService.saveItem(item)
+      .subscribe(
+        (res) => {
+          console.log("Save Item success", JSON.stringify(res, null, 2));
+          this.resetItem();
+        },
+        (err) => alert("error")
+      );
   }
 
   deleteItem(item: Item) {
