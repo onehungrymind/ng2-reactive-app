@@ -1,6 +1,9 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { WidgetsService, Widget } from '../shared';
+import {AppStore} from "../app-store";
+import {Store} from "@ngrx/store";
+import {DELETE_WIDGET} from "../shared/widgets.reducer";
 
 @Component({
   selector: 'app-widgets',
@@ -13,11 +16,14 @@ export class WidgetsComponent implements OnInit {
   selectedWidget: Widget;
 
   constructor(
-    private widgetsService: WidgetsService
-  ) {}
+    private widgetsService: WidgetsService,
+    private store: Store<AppStore>
+  ) {
+
+  }
 
   ngOnInit() {
-    this.widgets$ = this.widgetsService.widgets$;
+    this.widgets$ = this.store.select('widgets');
     this.widgetsService.loadWidgets();
   }
 
@@ -39,11 +45,7 @@ export class WidgetsComponent implements OnInit {
   }
 
   deleteWidget(widget: Widget) {
-    this.widgetsService.deleteWidget(widget);
-
-    // Generally, we would want to wait for the result of `widgetsService.deleteWidget`
-    // before resetting the current widget.
-    this.resetWidget();
+    this.store.dispatch({type: DELETE_WIDGET, payload: widget});
   }
 }
 

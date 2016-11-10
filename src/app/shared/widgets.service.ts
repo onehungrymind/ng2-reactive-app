@@ -48,7 +48,7 @@ export class WidgetsService {
   }
 
   deleteWidget(widget: Widget) {
-    return this.http.delete(`${BASE_URL}${widget.id}`)
-      .subscribe(action => this.store.dispatch({ type: DELETE_WIDGET, payload: widget }));
+    return this.http.delete(`${BASE_URL}${widget.id}`);
+    //  .subscribe(action => this.store.dispatch({ type: DELETE_WIDGET, payload: widget }));
   }
 }

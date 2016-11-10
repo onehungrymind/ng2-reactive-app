@@ -21,6 +21,8 @@ import { WidgetsListComponent } from './widgets/widgets-list/widgets-list.compon
 import { WidgetDetailComponent } from './widgets/widget-detail/widget-detail.component';
 
 import { HomeComponent } from './home/home.component';
+import {EffectsModule} from "@ngrx/effects";
+import {WidgetsEffect} from "./shared/widgets.effects";
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { HomeComponent } from './home/home.component';
     FormsModule,
     HttpModule,
     Ng2RestAppRoutingModule,
-    StoreModule.provideStore({ items, users, widgets })
+    StoreModule.provideStore({ items, users, widgets }),
+    EffectsModule.run(WidgetsEffect),
   ],
   providers: [ItemsService, UsersService, WidgetsService, HomeService, ItemsActions],
   bootstrap: [AppComponent]

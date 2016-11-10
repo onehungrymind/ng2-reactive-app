@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy, OnDestroy} from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ItemsService, Item } from '../shared';
 
@@ -8,9 +8,11 @@ import { ItemsService, Item } from '../shared';
   styleUrls: ['./items.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ItemsComponent implements OnInit {
+export class ItemsComponent implements OnInit, OnDestroy {
+
   items$: Observable<Item[]>;
   selectedItem: Item;
+  subs = {};
 
   constructor(
     private itemsService: ItemsService
@@ -19,6 +21,15 @@ export class ItemsComponent implements OnInit {
   ngOnInit() {
     this.items$ = this.itemsService.items$;
     this.itemsService.loadItems();
+  }
+
+  ngOnDestroy(): void {
+    if(!this.subs){
+      return;
+    }
+    Object.keys(this.subs).forEach((key)=>{
+      this.subs[key].unsubscribe();
+    })
   }
 
   resetItem() {
@@ -31,7 +42,7 @@ export class ItemsComponent implements OnInit {
   }
 
   saveItem(item: Item) {
-    this.itemsService.saveItem(item)
+    this.subs['saveItem'] = this.itemsService.saveItem(item)
       .subscribe(
         (res) => {
           console.log("Save Item success", JSON.stringify(res, null, 2));
@@ -41,12 +52,15 @@ export class ItemsComponent implements OnInit {
       );
   }
 
-  deleteItem(item: Item) {
-    this.itemsService.deleteItem(item);
-
-    // Generally, we would want to wait for the result of `itemsService.deleteItem`
-    // before resetting the current item.
-    this.resetItem();
+ deleteItem(item: Item) {
+    this.subs['deleteItem'] = this.itemsService.deleteItem(item)
+      .subscribe(
+        (res) => {
+          console.log("Delete Item success", JSON.stringify(res, null, 2))
+          this.resetItem();
+        },
+        (err) => alert("error")
+      );
   }
 }
 

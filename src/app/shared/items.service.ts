@@ -31,8 +31,7 @@ export class ItemsService {
   loadItems() {
     return this.http.get(BASE_URL)
       .map(res => res.json())
-      .map(payload => ({ type: ADD_ITEMS, payload }))
-      .subscribe(action => this.store.dispatch(action));
+      .subscribe(payload => this.store.dispatch({ type: ADD_ITEMS, payload }));
   }
 
   saveItem(item: Item): Observable<any> {
@@ -53,6 +52,6 @@ export class ItemsService {
 
   deleteItem(item: Item) {
     return this.http.delete(`${BASE_URL}${item.id}`)
-      .subscribe(action => this.store.dispatch({ type: DELETE_ITEM, payload: item }));
+      .do(action => this.store.dispatch({ type: DELETE_ITEM, payload: item }));
   }
 }
