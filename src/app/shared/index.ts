@@ -1,5 +1,6 @@
 export { ItemsService } from './items.service';
 export { Item } from './item.model';
+export { ItemsActions } from './items.actions.ts';
 export * from './items.reducer';
 export { UsersService } from './users.service';
 export { User } from './user.model';
