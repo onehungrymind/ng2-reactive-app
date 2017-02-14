@@ -14,14 +14,8 @@
     },
     {
       "id": 4,
-      "name": "asdfasdfasdf",
-      "description": "asdfasdfasdf"
-    },
-    {
-      "id": 5,
-      "name": "",
-      "description": "",
-      "user": 2
+      "name": "Item 4",
+      "description": "Another lovely item!"
     }
   ],
   "users": [
