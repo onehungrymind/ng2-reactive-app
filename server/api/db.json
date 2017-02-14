@@ -1,12 +1,6 @@
 {
   "items": [
     {
-      "id": 1,
-      "name": "Item 1",
-      "description": "This is a description",
-      "user": 1
-    },
-    {
       "id": 2,
       "name": "Item 2",
       "description": "This is a description edtied",
@@ -16,6 +10,17 @@
       "id": 3,
       "name": "Item 3",
       "description": "This is a lovely item edited again!",
+      "user": 2
+    },
+    {
+      "id": 4,
+      "name": "asdfasdfasdf",
+      "description": "asdfasdfasdf"
+    },
+    {
+      "id": 5,
+      "name": "",
+      "description": "",
       "user": 2
     }
   ],
