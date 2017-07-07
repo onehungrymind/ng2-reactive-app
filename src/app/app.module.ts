@@ -25,6 +25,7 @@ import { SliderComponent } from './widgets/slider/slider.component';
 
 @NgModule({
   declarations: [
+
     AppComponent,
     ItemsComponent,
     ItemsListComponent,
