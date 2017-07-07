@@ -25,6 +25,7 @@ import { CounterComponent } from './widgets/counter/counter.component';
 
 @NgModule({
   declarations: [
+
     AppComponent,
     ItemsComponent,
     ItemsListComponent,
