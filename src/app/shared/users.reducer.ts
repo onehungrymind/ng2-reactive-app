@@ -9,7 +9,7 @@ export const DELETE_USER = 'DELETE_USER';
 
 const comparator = 'id';
 
-export const users: ActionReducer<User[]> = (state: User[] = [], action: Action) => {
+export function users (state: User[] = [], action: Action) {
   switch (action.type) {
     case ADD_USERS:
       return action.payload;

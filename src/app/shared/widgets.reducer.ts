@@ -9,7 +9,7 @@ export const DELETE_WIDGET = 'DELETE_WIDGET';
 
 const comparator = 'id';
 
-export const widgets: ActionReducer<Widget[]> = (state: Widget[] = [], action: Action) => {
+export function widgets (state: Widget[] = [], action: Action) {
   switch (action.type) {
     case ADD_WIDGETS:
       return action.payload;

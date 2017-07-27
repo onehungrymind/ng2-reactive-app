@@ -9,7 +9,7 @@ export const DELETE_ITEM = 'DELETE_ITEM';
 
 const comparator = 'id';
 
-export const items: ActionReducer<Item[]> = (state: Item[] = [], action: Action) => {
+export function items (state: Item[] = [], action: Action) {
   switch (action.type) {
     case ADD_ITEMS:
       return action.payload;
