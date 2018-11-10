@@ -25,7 +25,7 @@ const initialState = [
   }
 ];
 
-export const widgets: ActionReducer<Widget[]> = (state: Widget[] = initialState, action: Action) => {
+export function widgets(state: Widget[] = [], action: Action) {
   switch (action.type) {
     case ADD_WIDGETS:
       return state;
